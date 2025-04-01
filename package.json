@@ -1,0 +1,21 @@
+{
+    "name": "nanarinostyl-lit",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "astro dev --host",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro"
+    },
+    "dependencies": {
+        "@holy-two/data-theme": "^0.0.6",
+        "iconify-icon": "^2.3.0",
+        "lit": "^3.2.1",
+        "nanarinostyl": "^0.7.5"
+    },
+    "devDependencies": {
+        "astro": "^5.5.6",
+        "css-doodle": "^0.42.2"
+    }
+}

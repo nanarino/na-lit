@@ -1,0 +1,36 @@
+<button id="theme-toggle" class="na-button" title="theme toggle" data-round>
+    <iconify-icon icon="line-md:moon-simple"></iconify-icon>
+    <iconify-icon icon="line-md:sunny"></iconify-icon>
+</button>
+<script>
+    import toggle from "@holy-two/data-theme/dist/toggle"
+    document.addEventListener("astro:page-load", () => {
+        const BUTTON = document.getElementById("theme-toggle")
+        BUTTON && (BUTTON.onclick = toggle)
+    })
+</script>
+<style>
+    button {
+        position: fixed;
+        z-index: 9;
+        bottom: 16px;
+        right: 16px;
+
+        display: grid;
+        --padding-horizonal-button: 16px;
+
+        & iconify-icon {
+            grid-area: 1/1/2/2;
+            transition: opacity 0.3s;
+            font-size: 24px;
+        }
+    }
+
+    :root[data-theme="light"] button iconify-icon:first-child {
+        opacity: 0;
+    }
+
+    :root[data-theme="dark"] button iconify-icon:last-child {
+        opacity: 0;
+    }
+</style>
