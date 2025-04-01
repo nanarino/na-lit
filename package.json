@@ -4,7 +4,8 @@
     "version": "0.0.1",
     "scripts": {
         "dev": "astro dev --host",
-        "build": "astro build",
+        "build": "tsup",
+        "build:gh-pages": "astro build --base /nanarinostyl-lit/",
         "preview": "astro preview",
         "astro": "astro"
     },
@@ -16,6 +17,7 @@
     },
     "devDependencies": {
         "astro": "^5.5.6",
-        "css-doodle": "^0.42.2"
+        "css-doodle": "^0.42.2",
+        "tsup": "^8.4.0"
     }
 }
