@@ -13,7 +13,7 @@
         "@holy-two/data-theme": "^0.0.6",
         "iconify-icon": "^2.3.0",
         "lit": "^3.2.1",
-        "nanarinostyl": "^0.7.5"
+        "nanarinostyl": "^0.7.7"
     },
     "devDependencies": {
         "astro": "^5.5.6",

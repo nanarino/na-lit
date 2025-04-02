@@ -142,6 +142,6 @@ export class Pagination extends NanarinoStylusLitComponent {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "ui5-pagination": Pagination
+        "na-pagination": Pagination
     }
 }
