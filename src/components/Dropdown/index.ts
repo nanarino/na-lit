@@ -14,7 +14,7 @@ export class Dropdown extends NanarinoStylusLitComponent {
 
     constructor() {
         super()
-        this._id = crypto.randomUUID()
+        this._id = crypto.getRandomValues(new Uint32Array(1))[0].toString()
     }
 
     protected render() {
