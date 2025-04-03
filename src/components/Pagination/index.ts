@@ -1,7 +1,10 @@
-import { NanarinoStylusLitComponent } from "@/components"
+import { NanarinoStylusLitComponent } from "@/components/types"
 import { type PropertyValues, html, css } from "lit"
 import { customElement, property, state } from "lit/decorators.js"
 import { map } from "lit/directives/map.js"
+import { unsafeHTML } from "lit/directives/unsafe-html.js"
+import left from "@/assets/left.svg?raw"
+import right from "@/assets/right.svg?raw"
 
 @customElement("na-pagination")
 export class Pagination extends NanarinoStylusLitComponent {
@@ -57,11 +60,7 @@ export class Pagination extends NanarinoStylusLitComponent {
                 ?disabled="${!this.total || this.current == 1}"
                 data-to="${this.current - 1}"
             >
-                <iconify-icon
-                    icon="line-md:chevron-left"
-                    width="1em"
-                    height="1em"
-                ></iconify-icon>
+                ${unsafeHTML(left)}
             </button>
             ${map(this.pages, p => {
                 if (p === this.current)
@@ -108,11 +107,7 @@ export class Pagination extends NanarinoStylusLitComponent {
                 ?disabled="${!this.total || this.current == this.total}"
                 data-to="${this.current + 1}"
             >
-                <iconify-icon
-                    icon="line-md:chevron-right"
-                    width="1em"
-                    height="1em"
-                ></iconify-icon>
+                ${unsafeHTML(right)}
             </button>
         </span>`
     }
@@ -129,13 +124,16 @@ export class Pagination extends NanarinoStylusLitComponent {
                     var(--padding-vertical-button, 5px) * 2
             );
             overflow: hidden;
-            &[data-transparent] {
-                background-color: transparent;
-                pointer-events: none;
-            }
-            * {
-                pointer-events: none;
-            }
+        }
+
+        button[data-transparent] {
+            background-color: transparent;
+            pointer-events: none;
+        }
+        button svg {
+            pointer-events: none;
+            width: 1em;
+            height: 1em;
         }
     `
 }

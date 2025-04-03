@@ -1,4 +1,4 @@
-import { NanarinoStylusLitComponent } from "@/components"
+import { NanarinoStylusLitComponent } from "@/components/types"
 import { html, css } from "lit"
 import { customElement, queryAssignedNodes } from "lit/decorators.js"
 
