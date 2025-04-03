@@ -1,0 +1,60 @@
+---
+import App from "@/layouts/app.astro"
+import clover from "@/assets/clover.svg"
+import lit from "@/assets/lit.svg"
+import left from "@/assets/left.svg"
+import right from "@/assets/right.svg"
+---
+
+<App title="矢量圖標">
+    <script>
+        import "@/components/SvgIcon"
+    </script>
+    <section>
+        <section>
+            <span>單色</span>
+            <na-svg-icon src={left.src} title="left"></na-svg-icon>
+            <na-svg-icon src={right.src} title="right"></na-svg-icon>
+        </section>
+        <section>
+            <span>主題色</span>
+            <na-svg-icon src={clover.src} title="clover"></na-svg-icon>
+            <na-svg-icon src={lit.src} title="lit"></na-svg-icon>
+        </section>
+        <section>
+            <span>固定彩色</span>
+            <na-svg-icon
+                src={import.meta.env.BASE_URL + "clover.svg"}
+                title="clover"></na-svg-icon>
+            <na-svg-icon
+                src={import.meta.env.BASE_URL + "tiktok.svg"}
+                title="tiktok"></na-svg-icon>
+        </section>
+        <section>
+            <span>加載失敗</span>
+            <na-svg-icon src="404" title="404"></na-svg-icon>
+        </section>
+    </section>
+    <style>
+        na-svg-icon {
+            width: 8em;
+            height: 8em;
+        }
+    </style>
+</App>
+
+<style>
+    section {
+        display: grid;
+        gap: 16px;
+        & section {
+            padding: 16px;
+            display: flex;
+        }
+    }
+
+    span {
+        width: 5em;
+        text-align: right;
+    }
+</style>

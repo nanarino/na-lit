@@ -10,4 +10,5 @@ export default defineConfig({
             formats: ["es"],
         },
     },
+    publicDir: false,
 })
