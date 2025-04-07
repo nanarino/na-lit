@@ -5,6 +5,8 @@ import themeIIFE from "@holy-two/data-theme/dist/iife?url"
 import iconifyIIFE from "iconify-icon/dist/iconify-icon.min?url"
 import cssDoodleIIFE from "css-doodle?url"
 import ThemeToggle from "@/components/ThemeToggle/index.astro"
+import { readFile } from "node:fs/promises"
+import { Code } from "astro:components"
 
 interface Props {
     title?: string
@@ -16,6 +18,16 @@ interface Props {
 }
 const title = Astro.props.title || Astro.props.frontmatter?.title || "na-lit"
 const github = Astro.props.github || Astro.props.frontmatter?.github
+const base = import.meta.env.BASE_URL
+const components = Astro.url.pathname.replace(RegExp(`^${base}`), "")
+let code: string | undefined = void 0
+if (components) {
+    const html = await readFile(`./src/pages/${components}.astro`, {
+        encoding: "utf8",
+    })
+    code = html.match(/<App(?:\s[^>]*)?>([\s\S]*?)<\/App>/)?.[1]
+    if (code) code += "\t" // 末行係空行沒有高度 加一個縮進就好
+}
 ---
 
 <html lang="zh-TW">
@@ -40,6 +52,15 @@ const github = Astro.props.github || Astro.props.frontmatter?.github
     <body>
         <ThemeToggle style="opacity: .8" />
         <slot />
+        {
+            code && (
+                <Code
+                    code={code}
+                    lang="astro"
+                    themes={{ dark: "min-dark", light: "min-light" }}
+                />
+            )
+        }
         {
             github && (
                 <footer class="na-layout-footer">
@@ -95,5 +116,21 @@ const github = Astro.props.github || Astro.props.frontmatter?.github
         color: rgb(var(--gray-3));
         --color-link: var(--primary-2);
         --color-link-hover: var(--primary-3);
+    }
+</style>
+
+<style is:global>
+    :root[data-theme="dark"] {
+        pre.astro-code-themes {
+            background-color: var(--shiki-dark-bg) !important;
+            color: var(--shiki-dark: #b392f0) !important;
+            .line span {
+                color: var(--shiki-dark) !important;
+                background-color: var(--shiki-dark-bg) !important;
+                font-style: var(--shiki-dark-font-style) !important;
+                font-weight: var(--shiki-dark-font-weight) !important;
+                text-decoration: var(--shiki-dark-text-decoration) !important;
+            }
+        }
     }
 </style>

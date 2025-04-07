@@ -130,6 +130,7 @@ export class Pagination extends NanarinoStylusLitComponent {
         button[data-transparent] {
             background-color: transparent;
             pointer-events: none;
+            color: rgb(var(--gray-5));
         }
         button svg {
             pointer-events: none;
