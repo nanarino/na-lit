@@ -36,4 +36,8 @@ import App from "@/layouts/app.astro"
     button {
         gap: 4px;
     }
+
+    na-dropdown:not([data-loaded]) [slot="dropdown"] {
+        display: none;
+    }
 </style>

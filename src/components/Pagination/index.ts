@@ -1,4 +1,4 @@
-import { NanarinoStylusLitComponent } from "@/components/types"
+import { NanarinoStylusLitComponent } from "@/components/base"
 import { type PropertyValues, html, css } from "lit"
 import { customElement, property, state } from "lit/decorators.js"
 import { map } from "lit/directives/map.js"
@@ -36,6 +36,7 @@ export class Pagination extends NanarinoStylusLitComponent {
     }
 
     protected updated(changed: PropertyValues) {
+        super.updated(changed)
         if (changed.has("total"))
             this.pages = Array.from({ length: this.total }, (_, i) => i + 1)
         if (changed.has("index")) this.current ||= this.index + 1 || 1

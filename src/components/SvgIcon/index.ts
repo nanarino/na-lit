@@ -1,9 +1,10 @@
-import { type PropertyValues, html, css , LitElement} from "lit"
+import { hasLoadedShowLitComponent } from "@/components/base"
+import { type PropertyValues, html, css } from "lit"
 import { customElement, property, queryAssignedNodes } from "lit/decorators.js"
 import mosaic from "@/assets/mosaic.svg?raw"
 
 @customElement("na-svg-icon")
-export class SvgIcon extends LitElement {
+export class SvgIcon extends hasLoadedShowLitComponent {
     @queryAssignedNodes()
     defaultSlotNodes!: Array<Node>
     @property({ type: String }) src: string = ""
@@ -19,8 +20,9 @@ export class SvgIcon extends LitElement {
             }
         }
     }
-    protected updated(props: PropertyValues): void {
-        if (props.has("src")) this.load()
+    protected updated(changed: PropertyValues): void {
+        if (changed.has("src")) this.load()
+        super.updated(changed)
     }
     protected render() {
         return html`<slot></slot>`
