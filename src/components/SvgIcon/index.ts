@@ -15,8 +15,17 @@ export class SvgIcon extends hasLoadedShowLitComponent {
                 if (!res.ok) throw new Error(`${res.status}`)
                 this.shadowRoot!.innerHTML = await res.text()
             } catch (error) {
-                console.error(error)
-                this.shadowRoot!.innerHTML = mosaic
+                if (
+                    this.renderRoot.dispatchEvent(
+                        new CustomEvent("load-error", {
+                            bubbles: true,
+                            composed: true,
+                            detail: error,
+                            cancelable: true,
+                        })
+                    )
+                )
+                    this.shadowRoot!.innerHTML = mosaic
             }
         }
     }

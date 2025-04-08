@@ -18,7 +18,7 @@ import App from "@/layouts/app.astro"
         function onload() {
             for (const element of document.querySelectorAll("na-pagination")) {
                 element.addEventListener("page-to", e => {
-                    // e.preventDefault() 阻止翻頁 （或 return false）
+                    // e.preventDefault() 阻止翻頁
                     const to = (e as CustomEvent<number>).detail
                     console.log("page-to", to)
                 })
@@ -29,7 +29,7 @@ import App from "@/layouts/app.astro"
                 }
             }
         }
-        
+
         // code-ignore-start
         document.addEventListener("astro:after-swap", e => {
             if (e.target) {
@@ -38,7 +38,7 @@ import App from "@/layouts/app.astro"
                 const components = pathname.replace(RegExp(`^${base}`), "")
                 if (components === "na-pagination") onload()
             }
-        }) 
+        })
         // code-ignore-end
 
         onload()

@@ -39,6 +39,29 @@ import right from "@/assets/right.svg"
             <na-svg-icon src="404" title="404"></na-svg-icon>
         </section>
     </section>
+    <script>
+        function onload() {
+            for (const element of document.querySelectorAll("na-svg-icon")) {
+                element.addEventListener("load-error", e => {
+                    // e.preventDefault() 阻止顯示缺省圖片
+                    console.warn("load-error", (e as CustomEvent<Error>).detail)
+                })
+            }
+        }
+
+        // code-ignore-start
+        document.addEventListener("astro:after-swap", e => {
+            if (e.target) {
+                const pathname = (e.target as Document).location.pathname
+                const base = import.meta.env.BASE_URL
+                const components = pathname.replace(RegExp(`^${base}`), "")
+                if (components === "na-svg-icon") onload()
+            }
+        })
+        // code-ignore-end
+
+        onload()
+    </script>
     <style>
         na-svg-icon {
             width: 8em;
