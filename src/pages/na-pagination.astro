@@ -14,6 +14,35 @@ import App from "@/layouts/app.astro"
         <na-pagination total="10"></na-pagination>
         <na-pagination total="36"></na-pagination>
     </section>
+    <script>
+        function onload() {
+            for (const element of document.querySelectorAll("na-pagination")) {
+                element.addEventListener("page-to", e => {
+                    // e.preventDefault() 阻止翻頁 （或 return false）
+                    const to = (e as CustomEvent<number>).detail
+                    console.log("page-to", to)
+                })
+                element.onChange = current => {
+                    // 并非事件
+                    // 翻頁被阻止時不觸發
+                    console.log("onChange", current)
+                }
+            }
+        }
+        
+        // code-ignore-start
+        document.addEventListener("astro:after-swap", e => {
+            if (e.target) {
+                const pathname = (e.target as Document).location.pathname
+                const base = import.meta.env.BASE_URL
+                const components = pathname.replace(RegExp(`^${base}`), "")
+                if (components === "na-pagination") onload()
+            }
+        }) 
+        // code-ignore-end
+
+        onload()
+    </script>
 </App>
 
 <style>

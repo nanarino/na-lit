@@ -26,7 +26,21 @@ if (components) {
         encoding: "utf8",
     })
     code = html.match(/<App(?:\s[^>]*)?>([\s\S]*?)<\/App>/)?.[1]
-    if (code) code += "\t" // 末行係空行沒有高度 加一個縮進就好
+    if (code) {
+        code += "\t" // 末行係空行沒有高度 加一個縮進就好
+
+        // 忽略某些行：
+
+        // code-ignore-start
+        // ...
+        // code-ignore-end
+
+        // 不支援嵌套
+        code = code.replace(
+            /(\s)*\/\/ code-ignore-start[\s\S]*?\/\/ code-ignore-end/,
+            ""
+        )
+    }
 }
 ---
 
