@@ -12,20 +12,78 @@ import App from "@/layouts/app.astro"
             <button class="na-button" slot="dropdown">
                 <iconify-icon icon="line-md:email" width="16" height="16">
                 </iconify-icon>
-                <span>email</span>
+                <span> email </span>
             </button>
             <button class="na-button" slot="dropdown">
                 <iconify-icon icon="line-md:twitter" width="16" height="16">
                 </iconify-icon>
-                <span>twitter</span>
+                <span> twitter </span>
             </button>
             <button class="na-button" slot="dropdown">
                 <iconify-icon icon="line-md:instagram" width="16" height="16">
                 </iconify-icon>
-                <span>instagram</span>
+                <span> instagram </span>
+            </button>
+        </na-dropdown>
+
+        <hr class="na-divider" />
+
+        <!-- `dialog-popover="manual"` 會禁用自動關閉 -->
+        <na-dropdown dialog-popover="manual">
+            <button class="na-button" style="--color-button: var(--red-6);">
+                <iconify-icon
+                    icon="line-md:youtube-filled"
+                    width="24"
+                    height="24"
+                >
+                </iconify-icon>
+            </button>
+            <button class="na-button" slot="dropdown">
+                <iconify-icon icon="line-md:thumbs-up" width="16" height="16">
+                </iconify-icon>
+                <span> I Like </span>
+            </button>
+            <button class="na-button" slot="dropdown">
+                <iconify-icon icon="line-md:star" width="16" height="16">
+                </iconify-icon>
+                <span> Add Star </span>
+            </button>
+            <button class="na-button" slot="dropdown">
+                <iconify-icon
+                    icon="line-md:download-outline"
+                    width="16"
+                    height="16"
+                >
+                </iconify-icon>
+                <span> Download </span>
             </button>
         </na-dropdown>
     </section>
+    <script>
+        function onload() {
+            for (const element of document.querySelectorAll("na-dropdown")) {
+                const dialog: HTMLDialogElement = element.dialog
+                console.log(dialog)
+                // 程式控制氣泡框：
+                // dialog.togglePopover()
+                // dialog.showPopover()
+                // dialog.hidePopover()
+            }
+        }
+
+        // code-ignore-start
+        document.addEventListener("astro:after-swap", e => {
+            if (e.target) {
+                const pathname = (e.target as Document).location.pathname
+                const base = import.meta.env.BASE_URL
+                const components = pathname.replace(RegExp(`^${base}`), "")
+                if (components === "na-dropdown") onload()
+            }
+        })
+        // code-ignore-end
+
+        onload()
+    </script>
     <style>
         [slot="dropdown"] {
             gap: 4px;
@@ -34,11 +92,21 @@ import App from "@/layouts/app.astro"
         na-dropdown:not([data-loaded]) [slot="dropdown"] {
             display: none;
         }
+
+        [dialog-popover="manual"] {
+            align-self: end;
+        }
     </style>
 </App>
 
 <style>
     section {
         padding: 64px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    hr {
+        width: 100%;
     }
 </style>

@@ -1,9 +1,14 @@
 import { NanarinoStylusLitComponent } from "@/components/base"
 import { html, css } from "lit"
-import { customElement, queryAssignedNodes } from "lit/decorators.js"
+import { customElement, queryAssignedNodes, property } from "lit/decorators.js"
 
 @customElement("na-dropdown")
 export class Dropdown extends NanarinoStylusLitComponent {
+    @property({ attribute: "dialog-popover", type: String }) popover:
+        | "auto"
+        | "manual"
+        | "hint" = "auto"
+
     @queryAssignedNodes()
     defaultSlotNodes!: Array<Node>
 
@@ -17,12 +22,16 @@ export class Dropdown extends NanarinoStylusLitComponent {
         this._id = crypto.getRandomValues(new Uint32Array(1))[0].toString()
     }
 
+    get dialog() {
+        return this.shadowRoot?.getElementById(this._id) as HTMLDialogElement
+    }
+
     protected render() {
         return html`<div class="na-dropdown-wrapper">
             <button popovertarget="${this._id}">
                 <slot></slot>
             </button>
-            <dialog id="${this._id}" popover="auto"></dialog>
+            <dialog id="${this._id}" popover="${this.popover}"></dialog>
             <div class="na-dropdown sm">
                 <slot name="dropdown"></slot>
             </div>
@@ -30,6 +39,10 @@ export class Dropdown extends NanarinoStylusLitComponent {
     }
 
     static styles = css`
+        :host {
+            display: inline-flex;
+        }
+
         button {
             padding: 0;
             margin: 0;
