@@ -12,7 +12,7 @@ pnpm i
 pnpm vite
 ```
 
-### 開發規則
+### 约束
 
 爲了在 html 内能直接引入，lit htnl 模板内不要使用 `<iconify-icon />` (并非 `slot`)
 
@@ -24,4 +24,55 @@ pnpm vite
 
 ```bash
 pnpm build
+```
+
+## 利用
+
+先要構建出 `nanarinostyl.min.css` 和 `nanarinostyl-lit.js`，在 html 引入
+
+```astro
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{title}</title>
+        <meta name="generator" content={Astro.generator} />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="icon" type="image/svg+xml" href="/clover.svg" />
+        <!-- 把 `nanarinostyl.min.css` 記住它是第幾個 第一個  -->
+        <link rel="stylesheet" href="/nanarinostyl.min.css" />
+        <style is:inline>
+            *:not(:defined) {
+                display: none;
+            }
+        </style>
+        <ClientRouter />
+        <script is:inline fetchpriority="high" src={themeIIFE}></script>
+        <script src="src/client/init"></script>
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>
+```
+
+注冊元件 并為影子 DOM 注入樣式
+
+```ts
+// src/client/init.ts
+
+import { NanarinoStylusLitComponent } from "src/assets/nanarinostyl-lit.js"
+
+// 影子DOM内部樣式復用外部的全局樣式 需要保證是[0]
+const nanarinostyl = document.styleSheets[0]
+for (const css of nanarinostyl?.cssRules ?? []) {
+    NanarinoStylusLitComponent.nanarinoStylus.insertRule(css.cssText)
+}
+```
+
+頁面中使用
+
+```astro
+<section>
+    <na-pagination total="36"></na-pagination>
+</section>
 ```
