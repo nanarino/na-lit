@@ -14,7 +14,7 @@ pnpm vite
 
 ### 约束
 
-爲了在 html 内能直接引入，lit htnl 模板内不要使用 `<iconify-icon />` (并非 `slot`)
+爲了在 html 内能直接引入，lit 模板内不要使用 `<iconify-icon />` (并非 `slot`)
 
 爲了在不安全的域下運行，不要使用安全性高的 API 如 `CSS.paintWorklet`
 

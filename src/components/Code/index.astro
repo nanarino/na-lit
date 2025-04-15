@@ -1,0 +1,49 @@
+---
+import { readFile } from "node:fs/promises"
+import { Code } from "astro:components"
+import Boxing from "./boxing.astro"
+
+const base = import.meta.env.BASE_URL
+const components = Astro.url.pathname.replace(RegExp(`^${base}`), "")
+let code: string | undefined = void 0
+if (components) {
+    const html = await readFile(`./src/pages/${components}.astro`, {
+        encoding: "utf8",
+    })
+    code = html.match(/<App(?:\s[^>]*)?>([\s\S]*?)<\/App>/)?.[1]
+    if (code) {
+        code += "\t" // 末行係空行沒有高度 加一個縮進就好
+
+        // 忽略某些行：
+
+        // code-ignore-start
+        // ...
+        // code-ignore-end
+
+        // 不支援嵌套
+        code = code.replace(
+            /(\s)*\/\/ code-ignore-start[\s\S]*?\/\/ code-ignore-end/,
+            ""
+        )
+    }
+}
+---
+
+{
+    code && (
+        <Boxing class="na-watermark">
+            <Code
+                code={code}
+                lang="astro"
+                themes={{ dark: "min-dark", light: "min-light" }}
+            />
+        </Boxing>
+    )
+}
+
+<style is:global>
+    body > .na-pre {
+        margin: 2rem;
+        border-radius: var(--border-radius-lg);
+    }
+</style>
