@@ -19,12 +19,14 @@ if (Astro.slots.has("default")) {
     // pre > code
     code = code.replace("<code>", '<code class="na-code">')
     // pre > code > .line > span[style]
-    code = code.replace(/<span style="(.*?)">/gim, (span, cssText?: string) => {
-        if (cssText?.includes("--shiki-dark:")) {
-            const style = parse(cssText)
+    code = code.replace(/<span style="(.*?)">/gim, (span, cssText: string) => {
+        const style = parse(cssText)
+        const light = style?.color
+        const dark = style?.["--shiki-dark"]
+        if (light && dark) {
             return dedent`<span style="
-                --color-code: from ${style.color} r g b;
-                --color-code-dark: from ${style["--shiki-dark"]} r g b;
+                --color-code: from ${light} r g b;
+                --color-code-dark: from ${dark} r g b;
             ">`
         }
         return span

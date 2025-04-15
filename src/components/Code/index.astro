@@ -31,7 +31,7 @@ if (components) {
 
 {
     code && (
-        <Boxing class="na-watermark">
+        <Boxing class="na-lit-code na-watermark">
             <Code
                 code={code}
                 lang="astro"
@@ -42,8 +42,19 @@ if (components) {
 }
 
 <style is:global>
-    body > .na-pre {
+    body:has(.na-lit-code) {
+        display: flex;
+        @media screen and (max-width: 1024px) {
+            flex-direction: column;
+        }
+    }
+    body > section {
+        flex: auto;
+    }
+    body > .na-lit-code {
         margin: 2rem;
         border-radius: var(--border-radius-lg);
+        /** 對冲左側縮進 */
+        padding-right: 5em;
     }
 </style>
