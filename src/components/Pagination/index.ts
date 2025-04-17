@@ -10,7 +10,7 @@ interface PageButton {
     attribute: {
         disabled: boolean
         "data-transparent": boolean
-        "data-current": boolean
+        "data-primary": boolean
         "data-to"?: string
     }
     innerText: string
@@ -77,7 +77,7 @@ export class Pagination extends NanarinoStylusLitComponent {
                     attribute: {
                         disabled: true,
                         "data-transparent": false,
-                        "data-current": true,
+                        "data-primary": true,
                         "data-to": `${i}`,
                     },
                     innerText: `${i}`,
@@ -99,7 +99,7 @@ export class Pagination extends NanarinoStylusLitComponent {
                     attribute: {
                         disabled: false,
                         "data-transparent": false,
-                        "data-current": false,
+                        "data-primary": false,
                         "data-to": `${i}`,
                     },
                     innerText: `${i}`,
@@ -109,7 +109,7 @@ export class Pagination extends NanarinoStylusLitComponent {
                     attribute: {
                         disabled: false,
                         "data-transparent": true,
-                        "data-current": false,
+                        "data-primary": false,
                     },
                     innerText: `...`,
                 })
@@ -138,7 +138,7 @@ export class Pagination extends NanarinoStylusLitComponent {
                     <button
                         class="na-button"
                         ?disabled=${btn.attribute.disabled}
-                        ?data-primary=${btn.attribute["data-current"]}
+                        ?data-primary=${btn.attribute["data-primary"]}
                         ?data-transparent=${btn.attribute["data-transparent"]}
                         data-to=${btn.attribute["data-to"]}
                     >
