@@ -6,10 +6,18 @@ import { unsafeHTML } from "lit/directives/unsafe-html.js"
 import left from "@/assets/left.svg?raw"
 import right from "@/assets/right.svg?raw"
 
-interface PageButton {
+export interface PaginationProps
+    extends Omit<Partial<HTMLElement>, "children"> {
+    index?: number
+    current?: number
+    total?: number
+    onChange?: ((current: number) => void | Promise<void>) | undefined | null
+}
+
+export interface PageButton {
     attribute: {
         disabled: boolean
-        "data-transparent": boolean
+        "data-ellipsis": boolean
         "data-primary": boolean
         "data-to"?: string
     }
@@ -17,7 +25,10 @@ interface PageButton {
 }
 
 @customElement("na-pagination")
-export class Pagination extends NanarinoStylusLitComponent {
+export class Pagination
+    extends NanarinoStylusLitComponent
+    implements PaginationProps
+{
     @property({ type: Number }) index: number = NaN
     @property({ type: Number }) current: number = NaN
     @property({ type: Number }) total: number = NaN
@@ -76,7 +87,7 @@ export class Pagination extends NanarinoStylusLitComponent {
                 pages.push({
                     attribute: {
                         disabled: true,
-                        "data-transparent": false,
+                        "data-ellipsis": false,
                         "data-primary": true,
                         "data-to": `${i}`,
                     },
@@ -98,7 +109,7 @@ export class Pagination extends NanarinoStylusLitComponent {
                 pages.push({
                     attribute: {
                         disabled: false,
-                        "data-transparent": false,
+                        "data-ellipsis": false,
                         "data-primary": false,
                         "data-to": `${i}`,
                     },
@@ -108,7 +119,7 @@ export class Pagination extends NanarinoStylusLitComponent {
                 pages.push({
                     attribute: {
                         disabled: false,
-                        "data-transparent": true,
+                        "data-ellipsis": true,
                         "data-primary": false,
                     },
                     innerText: `...`,
@@ -139,7 +150,7 @@ export class Pagination extends NanarinoStylusLitComponent {
                         class="na-button"
                         ?disabled=${btn.attribute.disabled}
                         ?data-primary=${btn.attribute["data-primary"]}
-                        ?data-transparent=${btn.attribute["data-transparent"]}
+                        ?data-ellipsis=${btn.attribute["data-ellipsis"]}
                         data-to=${btn.attribute["data-to"]}
                     >
                         ${btn.innerText}
@@ -171,7 +182,7 @@ export class Pagination extends NanarinoStylusLitComponent {
             overflow: hidden;
         }
 
-        button[data-transparent] {
+        button[data-ellipsis] {
             background-color: transparent;
             pointer-events: none;
             color: rgb(var(--gray-5));

@@ -2,12 +2,23 @@ import { NanarinoStylusLitComponent } from "@/components/base"
 import { html, css } from "lit"
 import { customElement, queryAssignedNodes, property } from "lit/decorators.js"
 
+export interface DropdownProps extends Omit<Partial<HTMLElement>, "children"> {
+    "dialog-popover"?: "auto" | "manual" | "hint"
+}
+
 @customElement("na-dropdown")
-export class Dropdown extends NanarinoStylusLitComponent {
+export class Dropdown
+    extends NanarinoStylusLitComponent
+    implements DropdownProps
+{
     @property({ attribute: "dialog-popover", type: String }) popover:
         | "auto"
         | "manual"
         | "hint" = "auto"
+
+    get ["dialog-popover"]() {
+        return this.popover
+    }
 
     @queryAssignedNodes()
     defaultSlotNodes!: Array<Node>
