@@ -11,6 +11,7 @@ export class Dropdown
     extends NanarinoStylusLitComponent
     implements DropdownProps
 {
+    /** old 不支援 `popover` */
     @property({ attribute: "dialog-popover", type: String }) popover:
         | "auto"
         | "manual"
@@ -34,18 +35,34 @@ export class Dropdown
     }
 
     get dialog() {
-        return this.shadowRoot?.getElementById(this._id) as HTMLDialogElement | null
+        return this.shadowRoot?.getElementById(
+            this._id
+        ) as HTMLDialogElement | null
+    }
+
+    private async handleOpen(event: MouseEvent) {
+        const dialog = this.dialog
+        dialog && (dialog.open = !dialog.open)
+    }
+    private async handleClose(event: MouseEvent) {
+        const dialog = this.dialog
+        const target = event.target as HTMLElement | null
+        if (dialog && target) {
+            if (target.closest("[slot=dropdown]"))
+                setTimeout(() => (dialog.open = false), 600)
+        }
     }
 
     protected render() {
         return html`<div class="na-dropdown-wrapper">
-            <button popovertarget="${this._id}">
+            <button @click=${this.handleOpen}>
                 <slot></slot>
             </button>
-            <dialog id="${this._id}" popover="${this.popover}"></dialog>
-            <div class="na-dropdown sm">
-                <slot name="dropdown"></slot>
-            </div>
+            <dialog class="na-dropdown sm" id="${this._id}">
+                <form method="dialog" @click=${this.handleClose}>
+                    <slot name="dropdown"></slot>
+                </form>
+            </dialog>
         </div>`
     }
 

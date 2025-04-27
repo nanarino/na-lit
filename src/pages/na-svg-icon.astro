@@ -40,7 +40,16 @@ import right from "@/assets/right.svg"
         </section>
     </section>
     <script>
-        function onload() {
+        async function onload() {
+            // code-ignore-start
+            const loadingElements = document.querySelectorAll(":not(:defined)")
+            const tags = new Set(
+                [...loadingElements].map(ele => ele.localName)
+            )
+            await Promise.all(
+                [...tags].map(tag => customElements.whenDefined(tag))
+            )
+            // code-ignore-end
             for (const element of document.querySelectorAll("na-svg-icon")) {
                 element.addEventListener("load-error", e => {
                     // e.preventDefault() 阻止顯示缺省圖片

@@ -15,7 +15,16 @@ import App from "@/layouts/app.astro"
         <na-pagination total={36}></na-pagination>
     </section>
     <script>
-        function onload() {
+        async function onload() {
+            // code-ignore-start
+            const loadingElements = document.querySelectorAll(":not(:defined)")
+            const tags = new Set(
+                [...loadingElements].map(ele => ele.localName)
+            )
+            await Promise.all(
+                [...tags].map(tag => customElements.whenDefined(tag))
+            )
+            // code-ignore-end
             for (const element of document.querySelectorAll("na-pagination")) {
                 element.addEventListener("page-to", e => {
                     // e.preventDefault() 阻止翻頁

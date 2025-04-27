@@ -52,9 +52,3 @@ export class SvgIcon extends hasLoadedShowLitComponent implements SvgIconProps {
         }
     `
 }
-
-declare global {
-    interface HTMLElementTagNameMap {
-        "na-svg-icon": SvgIcon
-    }
-}

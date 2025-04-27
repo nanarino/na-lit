@@ -22,7 +22,7 @@ if (components) {
 
         // 不支援嵌套
         code = code.replace(
-            /(\s)*\/\/ code-ignore-start[\s\S]*?\/\/ code-ignore-end/,
+            /(\s)*\/\/ code-ignore-start[\s\S]*?\/\/ code-ignore-end/g,
             ""
         )
     }

@@ -195,9 +195,3 @@ export class Pagination
         }
     `
 }
-
-declare global {
-    interface HTMLElementTagNameMap {
-        "na-pagination": Pagination
-    }
-}

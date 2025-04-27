@@ -4,7 +4,14 @@ import App from "@/layouts/app.astro"
 
 <App title="下拉氣泡">
     <script>
-        import "@/components/Dropdown"
+        // 丐版實現，點擊頁面任意位置都會導致自動關閉
+        // import "@/components/Dropdown"
+
+        // 完美實現， 需要 Chrome ≥ 125
+        import "@/components/Dropdown/next"
+
+        // 兼容實現，點擊元件外部無法關閉， Chrome ＜ 114 時使用 比如 WIN 7
+        // import "@/components/Dropdown/old"
     </script>
     <section>
         <na-dropdown>
@@ -60,10 +67,16 @@ import App from "@/layouts/app.astro"
         </na-dropdown>
     </section>
     <script>
-        function onload() {
+        async function onload() {
+            // code-ignore-start
+            const loadingElements = document.querySelectorAll(":not(:defined)")
+            const tags = new Set([...loadingElements].map(ele => ele.localName))
+            await Promise.all(
+                [...tags].map(tag => customElements.whenDefined(tag))
+            )
+            // code-ignore-end
             for (const element of document.querySelectorAll("na-dropdown")) {
-                const dialog: HTMLDialogElement = element.dialog
-                console.log(dialog)
+                console.log(element.dialog)
                 // 程式控制氣泡框：
                 // dialog.togglePopover()
                 // dialog.showPopover()
@@ -108,5 +121,10 @@ import App from "@/layouts/app.astro"
 
     hr {
         width: 100%;
+    }
+
+    iconify-icon {
+        width: attr(width px);
+        height: attr(height px);
     }
 </style>
