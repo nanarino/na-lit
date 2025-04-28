@@ -14,7 +14,7 @@ import App from "@/layouts/app.astro"
         // import "@/components/Dropdown/simple"
     </script>
     <section>
-        <!-- `closetarget="[type=submit]"` 點擊内部時 點擊的是提交按鈕才會自動關閉 -->
+        <!-- `closetarget="[type=submit]"` 自訂點擊内部時自動關閉條件 -->
         <!-- `closesoon="true"` 點擊内部時 立即關閉（該處係 astro 的 [attr] 渲染為 [attr="true"]🫡）-->
         <na-dropdown closetarget="[type=submit]" closesoon>
             <button class="na-button"> 連絡先 </button>
@@ -23,12 +23,12 @@ import App from "@/layouts/app.astro"
                 </iconify-icon>
                 <span> email </span>
             </button>
-            <button class="na-button" slot="dropdown">
+            <button class="na-button" slot="dropdown" data-primary>
                 <iconify-icon icon="line-md:twitter" width="16" height="16">
                 </iconify-icon>
                 <span> twitter </span>
             </button>
-            <button class="na-button" slot="dropdown">
+            <button class="na-button" slot="dropdown" data-primary>
                 <iconify-icon icon="line-md:instagram" width="16" height="16">
                 </iconify-icon>
                 <span> instagram </span>
@@ -82,13 +82,18 @@ import App from "@/layouts/app.astro"
             )
             // code-ignore-end
             for (const element of document.querySelectorAll("na-dropdown")) {
+                // 程式控制氣泡框
+                // element.toggle()
+
                 if (!element.dialog) continue
 
                 // 程式控制氣泡框（index）：
                 // element.dialog.open = true
-                // element.dialog.open = false
+                // element.dialog.open = false // 不要用這個 有監聽 @close 副作用
+                // element.dialog.show()
+                // element.dialog.close()
 
-                // 程式控制氣泡框（next）：
+                // 程式控制氣泡框（next/simple）：
                 // dialog.togglePopover()
                 // dialog.showPopover()
                 // dialog.hidePopover()

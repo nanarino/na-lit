@@ -36,6 +36,13 @@ export class Dropdown
         ) as HTMLDialogElement | null
     }
 
+    toggle() {
+        const dialog = this.dialog
+        if (dialog) {
+            dialog.togglePopover()
+        }
+    }
+
     protected render() {
         return html`<div class="na-dropdown-wrapper">
             <button popovertarget="${this._id}">

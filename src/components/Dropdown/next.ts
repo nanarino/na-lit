@@ -42,9 +42,17 @@ export class Dropdown
         ) as HTMLDialogElement | null
     }
 
+    toggle() {
+        const dialog = this.dialog
+        if (dialog) {
+            dialog.togglePopover()
+        }
+    }
+
     private async handleToggle(event: ToggleEvent) {
         const dialog = event.target as HTMLDialogElement | null
         if (dialog && event.newState === "open") {
+            this._will_close = false
             const wrapper = dialog.parentElement
             if (wrapper) {
                 const style: CSSStyleDeclaration =
@@ -64,12 +72,17 @@ export class Dropdown
         }
     }
 
-    private async handleClose(event: MouseEvent) {
+    private _will_close = false
+
+    private async handleBeforeClose(event: MouseEvent) {
+        if (this._will_close) return
         const dialog = this.dialog
         const target = event.target as HTMLElement | null
         if (dialog && target) {
-            if (target.closest(this.closetarget))
+            if (target.closest(this.closetarget)) {
+                this._will_close = true
                 setTimeout(() => dialog.hidePopover(), this.closesoon ? 0 : 600)
+            }
         }
     }
 
@@ -84,7 +97,7 @@ export class Dropdown
                 popover="${this.dialogPopover}"
                 @toggle=${this.handleToggle}
             >
-                <form method="dialog" @click=${this.handleClose}>
+                <form method="dialog" @click=${this.handleBeforeClose}>
                     <slot name="dropdown"></slot>
                 </form>
             </dialog>

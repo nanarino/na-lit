@@ -37,32 +37,44 @@ export class Dropdown
         ) as HTMLDialogElement | null
     }
 
-    private async handleOpen(event: MouseEvent) {
+    toggle() {
         const dialog = this.dialog
         if (dialog) {
-            dialog.style = this.dialogStyle
-            dialog.open = !dialog.open
+            if (dialog.open) dialog.close()
+            else dialog.show()
         }
     }
-    private async handleClose(event: MouseEvent) {
+
+    private handleClose() {
+        this._will_close = false
+    }
+
+    private _will_close = false
+
+    private async handleBeforeClose(event: MouseEvent) {
+        if (this._will_close) return
         const dialog = this.dialog
         const target = event.target as HTMLElement | null
         if (dialog && target) {
-            if (target.closest(this.closetarget))
-                setTimeout(
-                    () => (dialog.open = false),
-                    this.closesoon ? 0 : 600
-                )
+            if (target.closest(this.closetarget)) {
+                this._will_close = true
+                setTimeout(() => dialog.close(), this.closesoon ? 0 : 600)
+            }
         }
     }
 
     protected render() {
         return html`<div class="na-dropdown-wrapper">
-            <button @click=${this.handleOpen}>
+            <button @click=${this.toggle}>
                 <slot></slot>
             </button>
-            <dialog class="na-dropdown sm" id="${this._id}">
-                <form method="dialog" @click=${this.handleClose}>
+            <dialog
+                class="na-dropdown sm"
+                id="${this._id}"
+                @close="${this.handleClose}"
+                style="${this.dialogStyle}"
+            >
+                <form method="dialog" @click=${this.handleBeforeClose}>
                     <slot name="dropdown"></slot>
                 </form>
             </dialog>
