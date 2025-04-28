@@ -15,7 +15,7 @@ import App from "@/layouts/app.astro"
     </script>
     <section>
         <!-- `closetarget="[type=submit]"` 點擊内部時 點擊的是提交按鈕才會自動關閉 -->
-        <!-- `closesoon` 點擊内部時 立即關閉 -->
+        <!-- `closesoon="true"` 點擊内部時 立即關閉（該處係 astro 的 [attr] 渲染為 [attr="true"]🫡）-->
         <na-dropdown closetarget="[type=submit]" closesoon>
             <button class="na-button"> 連絡先 </button>
             <button class="na-button" slot="dropdown" type="submit">
@@ -38,7 +38,7 @@ import App from "@/layouts/app.astro"
         <hr class="na-divider" />
 
         <!-- `dialog-popover="manual"` 會禁用自動關閉 -->
-        <!-- `dialog-style` 自訂定位和偏移樣式 -->
+        <!-- `dialog-style="inset:unset;"` 自訂定位和偏移樣式 -->
         <na-dropdown
             dialog-popover="manual"
             dialog-style="left:unset;transform:unset;"
