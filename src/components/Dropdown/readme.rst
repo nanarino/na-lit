@@ -2,6 +2,18 @@
 Dropdown
 ========
 
-* ``index.ts`` 使用 ``dialog[popover=auto]+`` 丐版實現，點擊頁面任意位置都會導致自動關閉
-* ``next.ts`` 使用 ``dialog[popover=auto style="position-anchor"]`` 完美實現， 需要 Chrome ≥ 125
-* ``old.ts`` 使用 ``dialog.show()`` 兼容實現，點擊元件外部無法關閉， Chrome ＜ 114 時使用 比如 WIN 7
+* ``simple.ts`` 簡易實現，非 Chrome 大抵可用 可配置項少
+* ``next.ts`` 完美實現，需要 Chrome ≥ 125
+* ``index.ts`` 兼容實現，點擊元件外部無法自行關閉， Win7下可用
+
++-----------+----------------+----------------+--------------+-------------+-----------+
+| file      | Chrome Support | dialog-popover | dialog-style | closetarget | closesoon |
++===========+================+================+==============+=============+===========+
+| index.ts  | Chrome ≥ 109   | no             | support      | support     | support   |
++-----------+----------------+----------------+--------------+-------------+-----------+
+| next.ts   | Chrome ≥ 125   | support        | support      | support     | support   |
++-----------+----------------+----------------+--------------+-------------+-----------+
+| simple.ts | Chrome ≥ 114   | support        | support[*]   | any         | true      |
++-----------+----------------+----------------+--------------+-------------+-----------+
+
+``simple`` 與 ``next/index`` 的 ``dialog-style`` 需要各自自訂

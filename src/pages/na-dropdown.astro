@@ -4,19 +4,21 @@ import App from "@/layouts/app.astro"
 
 <App title="下拉氣泡">
     <script>
-        // 丐版實現，點擊頁面任意位置都會導致自動關閉
-        // import "@/components/Dropdown"
-
         // 完美實現， 需要 Chrome ≥ 125
         import "@/components/Dropdown/next"
 
-        // 兼容實現，點擊元件外部無法關閉， Chrome ＜ 114 時使用 比如 WIN 7
-        // import "@/components/Dropdown/old"
+        // 兼容實現，點擊元件外部無法關閉， WIN 7 可用
+        // import "@/components/Dropdown"
+
+        // 簡易實現，非Chrome大抵可用 可配置項少
+        // import "@/components/Dropdown/simple"
     </script>
     <section>
-        <na-dropdown>
+        <!-- `closetarget="[type=submit]"` 點擊内部時 點擊的是提交按鈕才會自動關閉 -->
+        <!-- `closesoon` 點擊内部時 立即關閉 -->
+        <na-dropdown closetarget="[type=submit]" closesoon>
             <button class="na-button"> 連絡先 </button>
-            <button class="na-button" slot="dropdown">
+            <button class="na-button" slot="dropdown" type="submit">
                 <iconify-icon icon="line-md:email" width="16" height="16">
                 </iconify-icon>
                 <span> email </span>
@@ -36,7 +38,11 @@ import App from "@/layouts/app.astro"
         <hr class="na-divider" />
 
         <!-- `dialog-popover="manual"` 會禁用自動關閉 -->
-        <na-dropdown dialog-popover="manual">
+        <!-- `dialog-style` 自訂定位和偏移樣式 -->
+        <na-dropdown
+            dialog-popover="manual"
+            dialog-style="left:unset;transform:unset;"
+        >
             <button class="na-button" style="--color-button: var(--red-6);">
                 <iconify-icon
                     icon="line-md:youtube-filled"
@@ -76,8 +82,13 @@ import App from "@/layouts/app.astro"
             )
             // code-ignore-end
             for (const element of document.querySelectorAll("na-dropdown")) {
-                console.log(element.dialog)
-                // 程式控制氣泡框：
+                if (!element.dialog) continue
+
+                // 程式控制氣泡框（index）：
+                // element.dialog.open = true
+                // element.dialog.open = false
+
+                // 程式控制氣泡框（next）：
                 // dialog.togglePopover()
                 // dialog.showPopover()
                 // dialog.hidePopover()

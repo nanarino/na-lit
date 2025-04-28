@@ -1,25 +1,21 @@
 import { NanarinoStylusLitComponent } from "@/components/base"
 import { html, css } from "lit"
 import { customElement, queryAssignedNodes, property } from "lit/decorators.js"
-
-export interface DropdownProps extends Omit<Partial<HTMLElement>, "children"> {
-    "dialog-popover"?: "auto" | "manual" | "hint"
-}
+import type { DropdownProps } from "./interface"
+export type { DropdownProps } from "./interface"
 
 @customElement("na-dropdown")
 export class Dropdown
     extends NanarinoStylusLitComponent
     implements DropdownProps
 {
-    /** old 不支援 `popover` */
-    @property({ attribute: "dialog-popover", type: String }) popover:
+    @property({ attribute: "dialog-popover", type: String }) dialogPopover:
         | "auto"
         | "manual"
         | "hint" = "auto"
 
-    get ["dialog-popover"]() {
-        return this.popover
-    }
+    @property({ attribute: "dialog-style", type: String }) dialogStyle: string =
+        ""
 
     @queryAssignedNodes()
     defaultSlotNodes!: Array<Node>
@@ -40,29 +36,15 @@ export class Dropdown
         ) as HTMLDialogElement | null
     }
 
-    private async handleOpen(event: MouseEvent) {
-        const dialog = this.dialog
-        dialog && (dialog.open = !dialog.open)
-    }
-    private async handleClose(event: MouseEvent) {
-        const dialog = this.dialog
-        const target = event.target as HTMLElement | null
-        if (dialog && target) {
-            if (target.closest("[slot=dropdown]"))
-                setTimeout(() => (dialog.open = false), 600)
-        }
-    }
-
     protected render() {
         return html`<div class="na-dropdown-wrapper">
-            <button @click=${this.handleOpen}>
+            <button popovertarget="${this._id}">
                 <slot></slot>
             </button>
-            <dialog class="na-dropdown sm" id="${this._id}">
-                <form method="dialog" @click=${this.handleClose}>
-                    <slot name="dropdown"></slot>
-                </form>
-            </dialog>
+            <dialog id="${this._id}" popover="${this.dialogPopover}"></dialog>
+            <div class="na-dropdown sm" style="${this.dialogStyle}">
+                <slot name="dropdown"></slot>
+            </div>
         </div>`
     }
 

@@ -1,24 +1,27 @@
 import { NanarinoStylusLitComponent } from "@/components/base"
-import { html, css } from "lit"
+import { html, css, unsafeCSS } from "lit"
 import { customElement, queryAssignedNodes, property } from "lit/decorators.js"
-
-export interface DropdownProps extends Omit<Partial<HTMLElement>, "children"> {
-    "dialog-popover"?: "auto" | "manual" | "hint"
-}
+import type { DropdownProps } from "./interface"
+export type { DropdownProps } from "./interface"
 
 @customElement("na-dropdown")
 export class Dropdown
     extends NanarinoStylusLitComponent
     implements DropdownProps
 {
-    @property({ attribute: "dialog-popover", type: String }) popover:
+    @property({ attribute: "dialog-popover", type: String }) dialogPopover:
         | "auto"
         | "manual"
         | "hint" = "auto"
 
-    get ["dialog-popover"]() {
-        return this.popover
-    }
+    @property({ attribute: "dialog-style", type: String }) dialogStyle: string =
+        ""
+
+    @property({ attribute: "closetarget", type: String }) closetarget: string =
+        "[slot=dropdown]"
+
+    @property({ attribute: "closesoon", type: String }) closesoon: boolean =
+        false
 
     @queryAssignedNodes()
     defaultSlotNodes!: Array<Node>
@@ -43,10 +46,21 @@ export class Dropdown
         const dialog = event.target as HTMLDialogElement | null
         if (dialog && event.newState === "open") {
             const wrapper = dialog.parentElement
-            if (wrapper)
-                dialog.style = `transform: translateX(${
-                    (wrapper.offsetWidth - dialog.offsetWidth) / 2
-                }px);`
+            if (wrapper) {
+                const style: CSSStyleDeclaration =
+                    Reflect.get(
+                        unsafeCSS(`dialog { ${this.dialogStyle} }`).styleSheet
+                            ?.cssRules[0] ?? {},
+                        "style"
+                    ) ?? {}
+                if (style.transform) {
+                    dialog.style = `opacity:1;${this.dialogStyle}`
+                } else {
+                    dialog.style = `transform: translateX(${
+                        (wrapper.offsetWidth - dialog.offsetWidth) / 2
+                    }px);opacity:1;${this.dialogStyle}`
+                }
+            }
         }
     }
 
@@ -54,8 +68,8 @@ export class Dropdown
         const dialog = this.dialog
         const target = event.target as HTMLElement | null
         if (dialog && target) {
-            if (target.closest("[slot=dropdown]"))
-                setTimeout(() => dialog.hidePopover(), 600)
+            if (target.closest(this.closetarget))
+                setTimeout(() => dialog.hidePopover(), this.closesoon ? 0 : 600)
         }
     }
 
@@ -67,7 +81,7 @@ export class Dropdown
             <dialog
                 class="na-popover sm"
                 id="${this._id}"
-                popover="${this.popover}"
+                popover="${this.dialogPopover}"
                 @toggle=${this.handleToggle}
             >
                 <form method="dialog" @click=${this.handleClose}>
@@ -91,6 +105,7 @@ export class Dropdown
             left: anchor(left);
             right: anchor(right);
             top: calc(anchor(bottom) + 8px);
+            opacity: 0;
         }
 
         button {
