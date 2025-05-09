@@ -1,5 +1,5 @@
 import { NanarinoStylusLitComponent } from "@/components/base"
-import { html, css, unsafeCSS } from "lit"
+import { html, css } from "lit"
 import { customElement, queryAssignedNodes, property } from "lit/decorators.js"
 import type { DropdownProps } from "./interface"
 export type { DropdownProps } from "./interface"
@@ -49,29 +49,6 @@ export class Dropdown
         }
     }
 
-    private async handleToggle(event: ToggleEvent) {
-        const dialog = event.target as HTMLDialogElement | null
-        if (dialog && event.newState === "open") {
-            this._will_close = false
-            const wrapper = dialog.parentElement
-            if (wrapper) {
-                const style: CSSStyleDeclaration =
-                    Reflect.get(
-                        unsafeCSS(`dialog { ${this.dialogStyle} }`).styleSheet
-                            ?.cssRules[0] ?? {},
-                        "style"
-                    ) ?? {}
-                if (style.transform) {
-                    dialog.style = `opacity:1;${this.dialogStyle}`
-                } else {
-                    dialog.style = `transform: translateX(${
-                        (wrapper.offsetWidth - dialog.offsetWidth) / 2
-                    }px);opacity:1;${this.dialogStyle}`
-                }
-            }
-        }
-    }
-
     private _will_close = false
 
     private async handleBeforeClose(event: MouseEvent) {
@@ -95,7 +72,7 @@ export class Dropdown
                 class="na-popover sm"
                 id="${this._id}"
                 popover="${this.dialogPopover}"
-                @toggle=${this.handleToggle}
+                style="${this.dialogStyle}"
             >
                 <form method="dialog" @click=${this.handleBeforeClose}>
                     <slot name="dropdown"></slot>
@@ -115,10 +92,9 @@ export class Dropdown
 
         .na-popover {
             position-anchor: --popover-wrapper;
-            left: anchor(left);
-            right: anchor(right);
+            left: anchor(center);
             top: calc(anchor(bottom) + 8px);
-            opacity: 0;
+            transform: translateX(-50%);
         }
 
         button {
