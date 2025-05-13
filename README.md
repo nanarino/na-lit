@@ -28,7 +28,7 @@ pnpm build
 
 ## 利用
 
-先要自订構建出 `nanarinostyl` 和 `nanarinostyl-lit`，在 html 引入
+先要自订構建出 `nanarinostyl` 和 `na-lit`，在 html 引入
 
 ```astro
 <html lang="zh-TW">
@@ -38,7 +38,7 @@ pnpm build
         <meta name="generator" content={Astro.generator} />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link rel="icon" type="image/svg+xml" href="/clover.svg" />
-        <!-- 把 `nanarinostyl.min.css` 記住它是第幾個 第一個  -->
+        <!-- 把 `nanarinostyl/dist/style.min.css` 記住它是第幾個 第一個  -->
         <link rel="stylesheet" href="/nanarinostyl.min.css" />
         <style is:inline>
             *:not(:defined) {
@@ -60,7 +60,7 @@ pnpm build
 ```ts
 // src/client/init.ts
 
-import { NanarinoStylusLitComponent } from "src/assets/nanarinostyl-lit.js"
+import { NanarinoStylusLitComponent } from "src/assets/na-lit.js"
 
 // 影子DOM内部樣式復用外部的全局樣式 需要保證是[0]
 const nanarinostyl = document.styleSheets[0]
