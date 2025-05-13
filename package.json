@@ -1,17 +1,16 @@
 {
-    "name": "nanarinostyl-lit",
+    "name": "na-lit",
     "type": "module",
     "version": "0.0.1",
     "scripts": {
         "dev": "astro dev --host",
         "build": "vite build",
         "build:docs": "astro build",
-        "build:gh-pages": "astro build --base /nanarinostyl-lit/",
-        "preview": "astro preview",
-        "astro": "astro"
+        "build:gh-pages": "astro build --base /na-lit/",
+        "preview": "astro preview"
     },
     "peerDependencies": {
-        "nanarinostyl": "^0.8.5"
+        "nanarinostyl": "^0.8.6"
     },
     "dependencies": {
         "@holy-two/data-theme": "^0.0.6",
