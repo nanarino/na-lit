@@ -1,0 +1,71 @@
+---
+import { Code } from "astro:components"
+import Boxing from "../Code/boxing.astro"
+import dedent from "dedent"
+
+const theme = {
+    dark: "material-theme-darker",
+    light: "material-theme-lighter",
+} as const
+---
+
+<p class="na-paragraph">
+    先要自订構建出 nanarinostyl (
+    <code class="na-code">nanarinostyl/dist/style.min.css</code>
+    ) 和 na-lit (
+    <code class="na-code">dist/na-lit.js</code>
+    ) 放置在自己專案的 assets 或 public 目錄中，並且在 html 引入
+</p>
+
+<Boxing class="na-watermark">
+    <Code
+        code={dedent`
+            <html lang="zh-TW">
+                <head>
+                    <!-- 記住它是第幾個 第一個  -->
+                    <link rel="stylesheet" href="/nanarinostyl.min.css" />
+                    <script src="src/index"></script>
+                </head>
+                <body>
+                    <slot />
+                </body>
+            </html>
+            `}
+        lang="astro"
+        themes={theme}
+    />
+</Boxing>
+
+<p class="na-paragraph">注冊元件 并為影子 DOM 注入樣式</p>
+
+<Boxing class="na-watermark">
+    <Code
+        code={dedent`
+                // src/index.ts
+
+                import { NanarinoStylusLitComponent } from "@/assets/na-lit.js"
+
+                // 影子DOM内部樣式復用外部的全局樣式 需要保證是[0]
+                const nanarinostyl = document.styleSheets[0]
+                for (const css of Array.from(nanarinostyl?.cssRules ?? []).reverse()) {
+                    NanarinoStylusLitComponent.nanarinoStylus.insertRule(css.cssText)
+                }
+            `}
+        lang="typescript"
+        themes={theme}
+    />
+</Boxing>
+
+<p class="na-paragraph">頁面中使用</p>
+
+<Boxing class="na-watermark">
+    <Code
+        code={dedent`
+                <section>
+                    <na-pagination total="36"></na-pagination>
+                </section>
+            `}
+        lang="astro"
+        themes={theme}
+    />
+</Boxing>

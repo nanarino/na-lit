@@ -4,14 +4,14 @@ interface Props {
     menu: Array<page | menu>
     base?: string
 }
-const { menu } = Astro.props
+
 const base = Astro.props.base ?? ""
 const getName = (path: string) => path?.match?.(/[^/]*$/)?.[0]
 ---
 
 <nav class="na-menu">
     {
-        menu.map(item => {
+        Astro.props.menu.map(item => {
             /**
              * 菜单
              */
@@ -79,7 +79,6 @@ const getName = (path: string) => path?.match?.(/[^/]*$/)?.[0]
 
 <style>
     .na-menu-item {
-        mix-blend-mode: difference;
-        color: #fff;
+        color: rgb(var(--gray-2));
     }
 </style>

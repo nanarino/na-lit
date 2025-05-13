@@ -28,26 +28,14 @@ pnpm build
 
 ## 利用
 
-先要自订構建出 `nanarinostyl` 和 `na-lit`，在 html 引入
+先要自订構建出 nanarinostyl ( `nanarinostyl/dist/style.min.css` ) 和 na-lit ( `dist/na-lit.js` ) 放置在自己專案的 `assets` 或 `public` 目錄中，並且在 html 引入
 
 ```astro
 <html lang="zh-TW">
     <head>
-        <meta charset="UTF-8" />
-        <title>{title}</title>
-        <meta name="generator" content={Astro.generator} />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <link rel="icon" type="image/svg+xml" href="/clover.svg" />
-        <!-- 把 `nanarinostyl/dist/style.min.css` 記住它是第幾個 第一個  -->
+        <!-- 記住它是第幾個 第一個  -->
         <link rel="stylesheet" href="/nanarinostyl.min.css" />
-        <style is:inline>
-            *:not(:defined) {
-                display: none;
-            }
-        </style>
-        <ClientRouter />
-        <script is:inline fetchpriority="high" src={themeIIFE}></script>
-        <script src="src/client/init"></script>
+        <script src="src/index"></script>
     </head>
     <body>
         <slot />
@@ -58,9 +46,9 @@ pnpm build
 注冊元件 并為影子 DOM 注入樣式
 
 ```ts
-// src/client/init.ts
+// src/index.ts
 
-import { NanarinoStylusLitComponent } from "src/assets/na-lit.js"
+import { NanarinoStylusLitComponent } from "@/assets/na-lit.js"
 
 // 影子DOM内部樣式復用外部的全局樣式 需要保證是[0]
 const nanarinostyl = document.styleSheets[0]

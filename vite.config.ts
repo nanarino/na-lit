@@ -6,7 +6,7 @@ export default defineConfig({
     plugins: [alias()],
     build: {
         lib: {
-            entry: resolve("./src/components/index.ts"),
+            entry: resolve("./src/lib/index.ts"),
             formats: ["es"],
         },
     },

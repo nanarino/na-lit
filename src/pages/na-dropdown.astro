@@ -5,13 +5,13 @@ import App from "@/layouts/app.astro"
 <App title="下拉氣泡">
     <script>
         // 完美實現， 需要 Chrome ≥ 125
-        import "@/components/Dropdown/next"
+        import "@/lib/Dropdown/next"
 
         // 兼容實現，點擊元件外部無法關閉， WIN 7 可用
-        // import "@/components/Dropdown"
+        // import "@/lib/Dropdown"
 
         // 簡易實現，非Chrome大抵可用 可配置項少
-        // import "@/components/Dropdown/simple"
+        // import "@/lib/Dropdown/simple"
     </script>
     <section>
         <!-- `closetarget="[type=submit]"` 自訂點擊内部時自動關閉條件 -->

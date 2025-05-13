@@ -1,4 +1,4 @@
-import { hasLoadedShowLitComponent } from "@/components/base"
+import { hasLoadedShowLitComponent } from "@/lib/base"
 import { type PropertyValues, html, css } from "lit"
 import { customElement, property, queryAssignedNodes } from "lit/decorators.js"
 import mosaic from "@/assets/mosaic.svg?raw"

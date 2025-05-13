@@ -1,6 +1,6 @@
 import { stat, readdir } from "node:fs/promises"
 import path from "node:path"
-import type { page, menu } from "@/components/Menu/types"
+import type { page, menu } from "src/components/Menu/types"
 
 export const getMenu = async (
     currentDir: string,

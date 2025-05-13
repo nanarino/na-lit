@@ -1,4 +1,4 @@
-import { NanarinoStylusLitComponent } from "@/components/base"
+import { NanarinoStylusLitComponent } from "@/lib/base"
 import { html, css } from "lit"
 import { customElement, queryAssignedNodes, property } from "lit/decorators.js"
 import type { DropdownProps } from "./interface"
@@ -16,12 +16,6 @@ export class Dropdown
 
     @property({ attribute: "dialog-style", type: String }) dialogStyle: string =
         ""
-
-    @property({ attribute: "closetarget", type: String }) closetarget: string =
-        "[slot=dropdown]"
-
-    @property({ attribute: "closesoon", type: String }) closesoon: boolean =
-        false
 
     @queryAssignedNodes()
     defaultSlotNodes!: Array<Node>
@@ -49,52 +43,21 @@ export class Dropdown
         }
     }
 
-    private _will_close = false
-
-    private async handleBeforeClose(event: MouseEvent) {
-        if (this._will_close) return
-        const dialog = this.dialog
-        const target = event.target as HTMLElement | null
-        if (dialog && target) {
-            if (target.closest(this.closetarget)) {
-                this._will_close = true
-                setTimeout(() => dialog.hidePopover(), this.closesoon ? 0 : 600)
-            }
-        }
-    }
-
     protected render() {
-        return html`<div class="na-popover-wrapper">
+        return html`<div class="na-dropdown-wrapper">
             <button popovertarget="${this._id}">
                 <slot></slot>
             </button>
-            <dialog
-                class="na-popover sm"
-                id="${this._id}"
-                popover="${this.dialogPopover}"
-                style="${this.dialogStyle}"
-            >
-                <form method="dialog" @click=${this.handleBeforeClose}>
-                    <slot name="dropdown"></slot>
-                </form>
-            </dialog>
+            <dialog id="${this._id}" popover="${this.dialogPopover}"></dialog>
+            <div class="na-dropdown sm" style="${this.dialogStyle}">
+                <slot name="dropdown"></slot>
+            </div>
         </div>`
     }
 
     static styles = css`
         :host {
             display: inline-flex;
-        }
-
-        .na-popover-wrapper {
-            anchor-name: --popover-wrapper;
-        }
-
-        .na-popover {
-            position-anchor: --popover-wrapper;
-            left: anchor(center);
-            top: calc(anchor(bottom) + 8px);
-            transform: translateX(-50%);
         }
 
         button {
