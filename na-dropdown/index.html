@@ -1,0 +1,594 @@
+<!DOCTYPE html><html lang="zh-TW" data-astro-cid-kq56sc45> <head><meta charset="UTF-8"><title>下拉氣泡</title><meta name="generator" content="Astro v5.7.14"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="/na-lit/clover.svg"><link rel="stylesheet" href="/na-lit/_astro/style.min.De01IvY6.css"><style>
+            *:not(:defined) {
+                display: none;
+            }
+        </style><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/na-lit/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CtSceO8m.js"></script><script fetchpriority="high" src="data:text/javascript;base64,InVzZSBzdHJpY3QiO3ZhciBlO2U9WyJkYXJrIiwibGlnaHQiXSx3aW5kb3cuaGFzT3duUHJvcGVydHkoInRoZW1lIil8fE9iamVjdC5kZWZpbmVQcm9wZXJ0eSh3aW5kb3csInRoZW1lIix7Z2V0OigpPT5sb2NhbFN0b3JhZ2UuZ2V0SXRlbSgidGhlbWUiKT8/ZVsrIXdpbmRvdy5tYXRjaE1lZGlhPy4oIihwcmVmZXJzLWNvbG9yLXNjaGVtZTogZGFyaykiKT8ubWF0Y2hlc119KSxkb2N1bWVudC5kb2N1bWVudEVsZW1lbnQuZGF0YXNldC50aGVtZT13aW5kb3cudGhlbWU7Ly8jIHNvdXJjZU1hcHBpbmdVUkw9aW5kZXguanMubWFw"></script><script src="/na-lit/_astro/iconify-icon.min.D2vAPERS.js"></script><script src="/na-lit/_astro/css-doodle.min.DftrHzoW.js"></script><script type="module" src="/na-lit/_astro/app.astro_astro_type_script_index_0_lang.D_Km8uIi.js"></script><style>section[data-astro-cid-3odlt2ea]{padding:2rem;display:flex;flex-direction:column;align-items:start}hr[data-astro-cid-3odlt2ea]{width:100%}iconify-icon[data-astro-cid-3odlt2ea]{width:attr(width px);height:attr(height px)}[data-astro-cid-3odlt2ea][slot=dropdown]{gap:4px}na-dropdown[data-astro-cid-3odlt2ea]:not([data-loaded]) [data-astro-cid-3odlt2ea][slot=dropdown]{display:none}[data-astro-cid-3odlt2ea][dialog-popover=manual]{align-self:end}
+</style>
+<link rel="stylesheet" href="/na-lit/_astro/index.BcEKR_FV.css"></head> <body data-astro-cid-kq56sc45> <button id="theme-toggle" class="na-button" title="theme toggle" data-round data-astro-cid-d7s4mkqw> <iconify-icon icon="line-md:moon-simple" data-astro-cid-d7s4mkqw="true"></iconify-icon> <iconify-icon icon="line-md:sunny" data-astro-cid-d7s4mkqw="true"></iconify-icon> </button> <script type="module">var n=["dark","light"],t=n;function o(){const e=t.at(t.indexOf(window.theme)-1);e&&(document.documentElement.dataset.theme=e,localStorage.setItem("theme",e))}document.addEventListener("astro:page-load",()=>{const e=document.getElementById("theme-toggle");e&&(e.onclick=o)});</script>   <script type="module">async function o(){const n=document.querySelectorAll(":not(:defined)"),t=new Set([...n].map(e=>e.localName));await Promise.all([...t].map(e=>customElements.whenDefined(e)));for(const e of document.querySelectorAll("na-dropdown"))e.dialog}document.addEventListener("astro:after-swap",n=>{n.target&&n.target.location.pathname.replace(RegExp("^/na-lit/"),"")==="na-dropdown"&&o()});o();</script> <section data-astro-cid-3odlt2ea> <!-- `closetarget="[type=submit]"` 自訂點擊内部時自動關閉條件 --> <!-- `closesoon="true"` 點擊内部時 立即關閉（該處係 astro 的 [attr] 渲染為 [attr="true"]🫡）--> <na-dropdown closetarget="[type=submit]" closesoon="true" data-astro-cid-3odlt2ea="true"> <button class="na-button" data-astro-cid-3odlt2ea> 連絡先 </button> <button class="na-button" slot="dropdown" type="submit" data-astro-cid-3odlt2ea> <iconify-icon icon="line-md:email" width="16" height="16" data-astro-cid-3odlt2ea="true"></iconify-icon> <span data-astro-cid-3odlt2ea> email </span> </button> <button class="na-button" slot="dropdown" data-primary data-astro-cid-3odlt2ea> <iconify-icon icon="line-md:twitter" width="16" height="16" data-astro-cid-3odlt2ea="true"></iconify-icon> <span data-astro-cid-3odlt2ea> twitter </span> </button> <button class="na-button" slot="dropdown" data-primary data-astro-cid-3odlt2ea> <iconify-icon icon="line-md:instagram" width="16" height="16" data-astro-cid-3odlt2ea="true"></iconify-icon> <span data-astro-cid-3odlt2ea> instagram </span> </button> </na-dropdown> <hr class="na-divider" data-astro-cid-3odlt2ea> <!-- `dialog-popover="manual"` 會禁用自動關閉 --> <!-- `dialog-style="inset:unset;"` 自訂定位和偏移樣式 --> <na-dropdown dialog-popover="manual" dialog-style="left: unset; transform: unset; right: anchor(right);" data-astro-cid-3odlt2ea="true"> <button class="na-button" style="--color-button: var(--red-6);" data-astro-cid-3odlt2ea> <iconify-icon icon="line-md:youtube-filled" width="24" height="24" data-astro-cid-3odlt2ea="true"></iconify-icon> </button> <button class="na-button" slot="dropdown" data-astro-cid-3odlt2ea> <iconify-icon icon="line-md:thumbs-up" width="16" height="16" data-astro-cid-3odlt2ea="true"></iconify-icon> <span data-astro-cid-3odlt2ea> I Like </span> </button> <button class="na-button" slot="dropdown" data-astro-cid-3odlt2ea> <iconify-icon icon="line-md:star" width="16" height="16" data-astro-cid-3odlt2ea="true"></iconify-icon> <span data-astro-cid-3odlt2ea> Add Star </span> </button> <button class="na-button" slot="dropdown" data-astro-cid-3odlt2ea> <iconify-icon icon="line-md:download-outline" width="16" height="16" data-astro-cid-3odlt2ea="true"></iconify-icon> <span data-astro-cid-3odlt2ea> Download </span> </button> </na-dropdown> </section> <script type="module" src="/na-lit/_astro/na-dropdown.astro_astro_type_script_index_1_lang.CuRztqHY.js"></script>   <aside data-astro-cid-ijmigw7p><section class="na-watermark" data-astro-cid-ijmigw7p><pre class="na-pre na-pre-components-spec" tabindex="0" data-astro-cid-ijmigw7p data-language="astro"><code class="na-code"><span class="line"></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">    &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">script</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">        // 完美實現， 需要 Chrome >= 125</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        import</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;"> "</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">@/lib/Dropdown/next</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">        // 兼容實現，點擊元件外部無法關閉， WIN 7 可用</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">        // import "@/lib/Dropdown"</span></span>
+<span class="line"></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">        // 簡易實現，非Chrome大抵可用 可配置項少</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">        // import "@/lib/Dropdown/simple"</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">    &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">script</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">    &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">section</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">        &#x3C;!-- `closetarget="[type=submit]"` 自訂點擊内部時自動關閉條件 --></span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">        &#x3C;!-- `closesoon="true"` 點擊内部時 立即關閉（該處係 astro 的 [attr] 渲染為 [attr="true"]🫡）--></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">na-dropdown</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> closetarget</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">[type=submit]</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> closesoon</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">button</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> class</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">na-button</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> 連絡先 </span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">&#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">button</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">button</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> class</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">na-button</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> slot</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">dropdown</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> type</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">submit</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">iconify-icon</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> icon</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">line-md:email</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> width</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">16</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> height</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">16</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">iconify-icon</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">span</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> email </span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">&#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">span</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">button</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">button</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> class</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">na-button</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> slot</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">dropdown</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> data-primary</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">iconify-icon</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> icon</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">line-md:twitter</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> width</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">16</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> height</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">16</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">iconify-icon</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">span</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> twitter </span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">&#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">span</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">button</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">button</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> class</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">na-button</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> slot</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">dropdown</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> data-primary</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">iconify-icon</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> icon</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">line-md:instagram</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> width</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">16</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> height</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">16</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">iconify-icon</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">span</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> instagram </span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">&#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">span</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">button</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">na-dropdown</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">hr</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> class</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">na-divider</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;"> /></span></span>
+<span class="line"></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">        &#x3C;!-- `dialog-popover="manual"` 會禁用自動關閉 --></span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">        &#x3C;!-- `dialog-style="inset:unset;"` 自訂定位和偏移樣式 --></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">na-dropdown</span></span>
+<span class="line"><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">            dialog-popover</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">manual</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span></span>
+<span class="line"><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">            dialog-style</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">left: unset; transform: unset; right: anchor(right);</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        ></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">button</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> class</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">na-button</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> style</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">--color-button: var(--red-6);</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">iconify-icon</span></span>
+<span class="line"><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">                    icon</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">line-md:youtube-filled</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span></span>
+<span class="line"><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">                    width</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">24</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span></span>
+<span class="line"><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">                    height</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">24</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                ></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">iconify-icon</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">button</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">button</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> class</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">na-button</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> slot</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">dropdown</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">iconify-icon</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> icon</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">line-md:thumbs-up</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> width</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">16</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> height</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">16</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">iconify-icon</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">span</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> I Like </span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">&#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">span</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">button</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">button</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> class</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">na-button</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> slot</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">dropdown</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">iconify-icon</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> icon</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">line-md:star</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> width</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">16</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> height</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">16</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">iconify-icon</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">span</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> Add Star </span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">&#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">span</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">button</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">button</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> class</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">na-button</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> slot</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">dropdown</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">iconify-icon</span></span>
+<span class="line"><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">                    icon</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">line-md:download-outline</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span></span>
+<span class="line"><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">                    width</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">16</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span></span>
+<span class="line"><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">                    height</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">16</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                ></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">iconify-icon</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">span</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> Download </span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">&#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">span</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">button</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">na-dropdown</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">    &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">section</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">    &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">script</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">        async</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> function</span><span style="--color-code: from #6182B8 r g b;
+--color-code-dark: from #82AAFF r g b;"> onload</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">()</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;"> {</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            for</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;"> (</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">const</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> element</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;"> of</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> document</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">.</span><span style="--color-code: from #6182B8 r g b;
+--color-code-dark: from #82AAFF r g b;">querySelectorAll</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">(</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">na-dropdown</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">)) </span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">{</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">                // 程式控制氣泡框</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">                // element.toggle()</span></span>
+<span class="line"></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                if</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;"> (</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">!</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;">element</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">.</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;">dialog</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">) </span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">continue</span></span>
+<span class="line"></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">                // 程式控制氣泡框（index）：</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">                // element.dialog.open = true</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">                // element.dialog.open = false // 不要用這個 有監聽 @close 副作用</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">                // element.dialog.show()</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">                // element.dialog.close()</span></span>
+<span class="line"></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">                // 程式控制氣泡框（next/simple）：</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">                // dialog.togglePopover()</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">                // dialog.showPopover()</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">                // dialog.hidePopover()</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            }</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--color-code: from #6182B8 r g b;
+--color-code-dark: from #82AAFF r g b;">        onload</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;">()</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">    &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">script</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">    &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">style</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        [</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">slot</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">dropdown</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">]</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;"> {</span></span>
+<span class="line"><span style="--color-code: from #8796B0 r g b;
+--color-code-dark: from #B2CCD6 r g b;">            gap</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">:</span><span style="--color-code: from #F76D47 r g b;
+--color-code-dark: from #F78C6C r g b;"> 4px</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">;</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--color-code: from #E2931D r g b;
+--color-code-dark: from #FFCB6B r g b;">        na-dropdown</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">:</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">not</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">([</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">data-loaded</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">])</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;"> [</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">slot</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">dropdown</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">]</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;"> {</span></span>
+<span class="line"><span style="--color-code: from #8796B0 r g b;
+--color-code-dark: from #B2CCD6 r g b;">            display</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">:</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> none</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">;</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        [</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">dialog-popover</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">manual</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">]</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;"> {</span></span>
+<span class="line"><span style="--color-code: from #8796B0 r g b;
+--color-code-dark: from #B2CCD6 r g b;">            align-self</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">:</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> end</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">;</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        }</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">    &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">style</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;">	</span></span></code></pre></section></aside>  </body></html> 

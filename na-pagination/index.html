@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="zh-TW" data-astro-cid-kq56sc45> <head><meta charset="UTF-8"><title>分頁器</title><meta name="generator" content="Astro v5.7.14"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="/na-lit/clover.svg"><link rel="stylesheet" href="/na-lit/_astro/style.min.De01IvY6.css"><style>
+            *:not(:defined) {
+                display: none;
+            }
+        </style><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/na-lit/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CtSceO8m.js"></script><script fetchpriority="high" src="data:text/javascript;base64,InVzZSBzdHJpY3QiO3ZhciBlO2U9WyJkYXJrIiwibGlnaHQiXSx3aW5kb3cuaGFzT3duUHJvcGVydHkoInRoZW1lIil8fE9iamVjdC5kZWZpbmVQcm9wZXJ0eSh3aW5kb3csInRoZW1lIix7Z2V0OigpPT5sb2NhbFN0b3JhZ2UuZ2V0SXRlbSgidGhlbWUiKT8/ZVsrIXdpbmRvdy5tYXRjaE1lZGlhPy4oIihwcmVmZXJzLWNvbG9yLXNjaGVtZTogZGFyaykiKT8ubWF0Y2hlc119KSxkb2N1bWVudC5kb2N1bWVudEVsZW1lbnQuZGF0YXNldC50aGVtZT13aW5kb3cudGhlbWU7Ly8jIHNvdXJjZU1hcHBpbmdVUkw9aW5kZXguanMubWFw"></script><script src="/na-lit/_astro/iconify-icon.min.D2vAPERS.js"></script><script src="/na-lit/_astro/css-doodle.min.DftrHzoW.js"></script><script type="module" src="/na-lit/_astro/app.astro_astro_type_script_index_0_lang.D_Km8uIi.js"></script><style>section[data-astro-cid-zj4ovyh2]{padding:2rem;display:grid;gap:36px}
+</style>
+<link rel="stylesheet" href="/na-lit/_astro/index.BcEKR_FV.css"></head> <body data-astro-cid-kq56sc45> <button id="theme-toggle" class="na-button" title="theme toggle" data-round data-astro-cid-d7s4mkqw> <iconify-icon icon="line-md:moon-simple" data-astro-cid-d7s4mkqw="true"></iconify-icon> <iconify-icon icon="line-md:sunny" data-astro-cid-d7s4mkqw="true"></iconify-icon> </button> <script type="module">var n=["dark","light"],t=n;function o(){const e=t.at(t.indexOf(window.theme)-1);e&&(document.documentElement.dataset.theme=e,localStorage.setItem("theme",e))}document.addEventListener("astro:page-load",()=>{const e=document.getElementById("theme-toggle");e&&(e.onclick=o)});</script>   <script type="module">async function a(){const n=document.querySelectorAll(":not(:defined)"),o=new Set([...n].map(e=>e.localName));await Promise.all([...o].map(e=>customElements.whenDefined(e)));for(const e of document.querySelectorAll("na-pagination"))e.addEventListener("page-to",t=>{const l=t.detail;console.log("page-to",l)}),e.onChange=t=>{console.log("onChange",t)}}document.addEventListener("astro:after-swap",n=>{n.target&&n.target.location.pathname.replace(RegExp("^/na-lit/"),"")==="na-pagination"&&a()});a();</script> <section data-astro-cid-zj4ovyh2> <na-pagination data-astro-cid-zj4ovyh2="true"></na-pagination> <na-pagination total="1" data-astro-cid-zj4ovyh2="true"></na-pagination> <na-pagination total="4" data-astro-cid-zj4ovyh2="true"></na-pagination> <na-pagination total="7" data-astro-cid-zj4ovyh2="true"></na-pagination> <na-pagination total="10" data-astro-cid-zj4ovyh2="true"></na-pagination> <na-pagination total="36" data-astro-cid-zj4ovyh2="true"></na-pagination> </section> <script type="module" src="/na-lit/_astro/na-pagination.astro_astro_type_script_index_1_lang.CFf_9oIi.js"></script>  <aside data-astro-cid-ijmigw7p><section class="na-watermark" data-astro-cid-ijmigw7p><pre class="na-pre na-pre-components-spec" tabindex="0" data-astro-cid-ijmigw7p data-language="astro"><code class="na-code"><span class="line"></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">    &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">script</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        import</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;"> "</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">@/lib/Pagination</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">    &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">script</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">    &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">section</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">na-pagination</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">>&#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">na-pagination</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">na-pagination</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> total</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">{1}</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">>&#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">na-pagination</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">na-pagination</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> total</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">{4}</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">>&#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">na-pagination</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">na-pagination</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> total</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">{7}</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">>&#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">na-pagination</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">na-pagination</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> total</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">{10}</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">>&#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">na-pagination</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">na-pagination</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> total</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">=</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">{36}</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">>&#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">na-pagination</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">    &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">section</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">    &#x3C;</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">script</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">        async</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> function</span><span style="--color-code: from #6182B8 r g b;
+--color-code-dark: from #82AAFF r g b;"> onload</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">()</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;"> {</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            for</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;"> (</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">const</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> element</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;"> of</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> document</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">.</span><span style="--color-code: from #6182B8 r g b;
+--color-code-dark: from #82AAFF r g b;">querySelectorAll</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">(</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">na-pagination</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">)) </span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">{</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;">                element</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">.</span><span style="--color-code: from #6182B8 r g b;
+--color-code-dark: from #82AAFF r g b;">addEventListener</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">(</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">page-to</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">,</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> e</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> =></span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;"> {</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">                    // e.preventDefault() 阻止翻頁</span></span>
+<span class="line"><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;">                    const</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> to</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;"> =</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;"> (</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;">e</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;"> as</span><span style="--color-code: from #E2931D r g b;
+--color-code-dark: from #FFCB6B r g b;"> CustomEvent</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">&#x3C;</span><span style="--color-code: from #E2931D r g b;
+--color-code-dark: from #FFCB6B r g b;">number</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">)</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">.</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;">detail</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;">                    console</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">.</span><span style="--color-code: from #6182B8 r g b;
+--color-code-dark: from #82AAFF r g b;">log</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">(</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">page-to</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">,</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> to</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">)</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                }</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">)</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;">                element</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">.</span><span style="--color-code: from #6182B8 r g b;
+--color-code-dark: from #82AAFF r g b;">onChange</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;"> =</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> current</span><span style="--color-code: from #9C3EDA r g b;
+--color-code-dark: from #C792EA r g b;"> =></span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;"> {</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">                    // 并非事件</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #545454 r g b;">                    // 翻頁被阻止時不觸發</span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;">                    console</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">.</span><span style="--color-code: from #6182B8 r g b;
+--color-code-dark: from #82AAFF r g b;">log</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">(</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #91B859 r g b;
+--color-code-dark: from #C3E88D r g b;">onChange</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">"</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">,</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;"> current</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">)</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">                }</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">            }</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--color-code: from #6182B8 r g b;
+--color-code-dark: from #82AAFF r g b;">        onload</span><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;">()</span></span>
+<span class="line"><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">    &#x3C;/</span><span style="--color-code: from #E53935 r g b;
+--color-code-dark: from #F07178 r g b;">script</span><span style="--color-code: from #39ADB5 r g b;
+--color-code-dark: from #89DDFF r g b;">></span></span>
+<span class="line"><span style="--color-code: from #90A4AE r g b;
+--color-code-dark: from #EEFFFF r g b;">	</span></span></code></pre></section></aside>  </body></html> 
