@@ -1,0 +1,5 @@
+import{N as m}from"./base.BAJ96deS.js";function u(n){return new Promise(t=>setTimeout(t,n))}class l{constructor(t=document.body){this.reset(t)}reset(t=document.body){this.queue?.remove(),this.queue=document.createElement("div"),this.queue.className="na-message-queue",t.append(this.queue)}async emit(t){const e=document.createElement("div");let i=2e3,a="",r={},s=t??"☘";if(typeof s!="string"&&(i=s.duration??2e3,a=`${s.primary??""}`,r=s.style??{},s=`${s.content??"☘"}`),e.innerHTML=`
+            <div class="na-message">
+                <p class="na-paragraph">${s}</p>
+            </div>
+        `,a){const o=e.firstElementChild;o.dataset.primary=a,Object.entries(r).map(c=>o.style.setProperty(...c))}this.queue.appendChild(e),e.style.height=`${e.offsetHeight}px`,e.style.transition="opacity 1s, height 2s",await u(i),e.style.opacity="0",e.style.height="0",await u(2e3),this.queue.removeChild(e)}}const d=new l;document.addEventListener("astro:after-swap",()=>{document.documentElement.dataset.theme=window.theme,d.reset()});const h=document.styleSheets[0];for(const n of Array.from(h?.cssRules??[]).reverse())m.nanarinoStylus.insertRule(n.cssText);
