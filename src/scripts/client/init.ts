@@ -15,3 +15,6 @@ const nanarinostyl = document.styleSheets[0]
 for (const css of Array.from(nanarinostyl?.cssRules ?? []).reverse()) {
     NanarinoStylusLitComponent.nanarinoStylus.insertRule(css.cssText)
 }
+
+// 測試字體
+import "./fonts.spec"

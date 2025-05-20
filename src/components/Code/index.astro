@@ -2,6 +2,7 @@
 import { readFile } from "node:fs/promises"
 import { Code } from "astro:components"
 import Boxing from "./boxing.astro"
+import "@fontsource/jetbrains-mono/400.css"
 
 const base = import.meta.env.BASE_URL
 const components = Astro.url.pathname
@@ -47,6 +48,10 @@ if (components) {
 }
 
 <style is:global>
+    :root {
+        --font-family-mono: "JetBrains Mono";
+    }
+
     body:has(.na-lit-code) {
         display: flex;
         @media screen and (max-width: 1024px) {

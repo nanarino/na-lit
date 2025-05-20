@@ -103,6 +103,9 @@ export class Dropdown
             border: 0;
             outline: 0;
             background: none;
+            font-family: inherit;
+            font-style: inherit;
+            font-family: inherit;
         }
     `
 }

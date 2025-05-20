@@ -10,7 +10,7 @@
         "preview": "astro preview"
     },
     "peerDependencies": {
-        "nanarinostyl": "^0.8.6"
+        "nanarinostyl": "^0.9.3"
     },
     "dependencies": {
         "@holy-two/data-theme": "^0.0.6",
@@ -18,9 +18,10 @@
         "lit": "^3.3.0"
     },
     "devDependencies": {
+        "@fontsource/jetbrains-mono": "^5.2.5",
         "@holy-two/vite-plugin-alias": "^0.0.2",
-        "@types/node": "^22.15.17",
-        "astro": "^5.7.12",
+        "@types/node": "^22.15.19",
+        "astro": "^5.7.13",
         "css-doodle": "^0.42.3",
         "dedent": "^1.6.0",
         "style-to-object": "^1.0.8",

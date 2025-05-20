@@ -56,10 +56,10 @@ export class CurrentMoment
     render() {
         return html`
             <section class="na-paragraph">
-                <span>${this.date}</span>
-                <span>${this.weekday}</span>
+                <span class="date">${this.date}</span>
+                <span class="weekday">${this.weekday}</span>
             </section>
-            <section class="na-paragraph na-font-mono" data-size="1">
+            <section class="na-paragraph time" data-size="1">
                 ${this.time}
             </section>
         `
@@ -71,7 +71,7 @@ export class CurrentMoment
         }
 
         :host([data-primary]) {
-            color: rgb(var(--current-moment-color, var(--primary-7)));
+            color: rgb(var(--color-current-moment, var(--primary-7)));
         }
 
         section.na-paragraph {
@@ -79,6 +79,25 @@ export class CurrentMoment
             display: flex;
             justify-content: space-evenly;
             gap: 0.5em;
+        }
+
+        .date {
+            font-family: var(
+                --font-family-current-moment-date,
+                var(--font-family-base)
+            );
+        }
+        .weekday {
+            font-family: var(
+                --font-family-current-moment-weekday,
+                var(--font-family-base)
+            );
+        }
+        .time {
+            font-family: var(
+                --font-family-current-moment-time,
+                var(--font-family-mono)
+            );
         }
     `
 }
