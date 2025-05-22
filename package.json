@@ -10,7 +10,7 @@
         "preview": "astro preview"
     },
     "peerDependencies": {
-        "nanarinostyl": "^0.9.3"
+        "nanarinostyl": "^0.9.4"
     },
     "dependencies": {
         "@holy-two/data-theme": "^0.0.6",
@@ -20,8 +20,8 @@
     "devDependencies": {
         "@fontsource/jetbrains-mono": "^5.2.5",
         "@holy-two/vite-plugin-alias": "^0.0.2",
-        "@types/node": "^22.15.19",
-        "astro": "^5.7.13",
+        "@types/node": "^22.15.21",
+        "astro": "^5.7.14",
         "css-doodle": "^0.42.3",
         "dedent": "^1.6.0",
         "style-to-object": "^1.0.8",
