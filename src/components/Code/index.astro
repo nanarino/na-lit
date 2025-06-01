@@ -53,6 +53,8 @@ const transformers: Parameters<typeof Code>[0]["transformers"] = [
                 node.properties.class = "na-pre"
             }
             node.properties.style = null
+            // outline 焦點效果
+            // node.properties.tabindex = null
         },
         code(node) {
             this.addClassToHast(node, ["na-code"])
@@ -104,6 +106,8 @@ const transformers: Parameters<typeof Code>[0]["transformers"] = [
         overflow: hidden;
 
         & :global(.na-pre-components-spec) {
+            /** 與aside、section一致 在出現outline時表現正常  */
+            border-radius: var(--border-radius-lg);
             /** 對冲左側縮進 */
             padding-right: 5em;
             margin: 0;
@@ -111,7 +115,7 @@ const transformers: Parameters<typeof Code>[0]["transformers"] = [
     }
 
     section {
-        --border-radius-watermark: var(--border-radius-md);
+        --border-radius-watermark: var(--border-radius-lg);
     }
 </style>
 
