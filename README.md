@@ -55,7 +55,12 @@ import { NanarinoStylusLitComponent } from "@/assets/na-lit.js"
 // 影子DOM内部樣式復用外部的全局樣式 需要保證是[0]
 const nanarinostyl = document.styleSheets[0]
 for (const css of Array.from(nanarinostyl?.cssRules ?? []).reverse()) {
-    NanarinoStylusLitComponent.nanarinoStylus.insertRule(css.cssText)
+    // 點解要用try 見 https://github.com/nanarino/na-lit/issues/1
+    try {
+        NanarinoStylusLitComponent.nanarinoStylus.insertRule(css.cssText)
+    } catch (error) {
+        console.warn(error)
+    }
 }
 ```
 

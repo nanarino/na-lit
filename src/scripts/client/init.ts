@@ -13,7 +13,11 @@ document.addEventListener("astro:after-swap", () => {
 // 影子DOM内部樣式復用外部的全局樣式 需要保證是[0]
 const nanarinostyl = document.styleSheets[0]
 for (const css of Array.from(nanarinostyl?.cssRules ?? []).reverse()) {
-    NanarinoStylusLitComponent.nanarinoStylus.insertRule(css.cssText)
+    try {
+        NanarinoStylusLitComponent.nanarinoStylus.insertRule(css.cssText)
+    } catch (error) {
+        console.warn(error)
+    }
 }
 
 // 測試字體

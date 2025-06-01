@@ -18,9 +18,13 @@ function test_set_fonts() {
                 for (const css of Array.from(
                     (Reflect.get(this, "sheet")?.cssRules ?? []) as CSSRuleList
                 ).reverse()) {
-                    NanarinoStylusLitComponent.nanarinoStylus.insertRule(
-                        css.cssText
-                    )
+                    try {
+                        NanarinoStylusLitComponent.nanarinoStylus.insertRule(
+                            css.cssText
+                        )
+                    } catch (error) {
+                        console.warn(error)
+                    }
                 }
             }
             head.appendChild(link)
