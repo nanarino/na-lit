@@ -33,10 +33,10 @@ export type IframeAttrs = {
 
 export interface IframeTabsEmits {
     onTabChange: (
-        e: CustomEvent<IframeAttrs>
+        e: CustomEvent<IframeAttrs>,
     ) => void | boolean | Promise<void> | Promise<boolean>
     onTabClose: (
-        e: CustomEvent<IframeAttrs>
+        e: CustomEvent<IframeAttrs>,
     ) => void | boolean | Promise<void> | Promise<boolean>
 }
 
@@ -71,12 +71,12 @@ export class IframeTabs
                                         composed: true,
                                         detail: attrs,
                                         cancelable: true,
-                                    })
+                                    }),
                                 )
                             ) {
                                 const index = this.data.indexOf(attrs)
                                 this.data = this.data.filter(
-                                    item => item.key !== attrs.key
+                                    item => item.key !== attrs.key,
                                 )
                                 if (this.active === attrs.key) {
                                     this.active =
@@ -102,7 +102,7 @@ export class IframeTabs
                                                     composed: true,
                                                     detail: attrs,
                                                     cancelable: true,
-                                                })
+                                                }),
                                             )
                                         ) {
                                             this.active = attrs.key
@@ -140,12 +140,12 @@ export class IframeTabs
                                     @click=${handleClose}
                                 >
                                     ${unsafeHTML(
-                                        attrs.closeable ?? true ? close : ""
+                                        (attrs.closeable ?? true) ? close : "",
                                     )}
                                 </button>
                             </li>
                         `
-                    }
+                    },
                 )}
             </ul>
             <main class="na-layout-content">
@@ -168,7 +168,7 @@ export class IframeTabs
                                       title="${attrs.title}"
                                       src="${attrs.src}"
                                   ></iframe>
-                              </div>`
+                              </div>`,
                 )}
             </main>
         `
@@ -197,6 +197,8 @@ export class IframeTabs
         }
 
         iframe {
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
             border: none;
